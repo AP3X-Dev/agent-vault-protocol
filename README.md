@@ -1,4 +1,4 @@
-# AVP MVP (Agent Vault Protocol)
+# AVP(Agent Vault Protocol)
 
 This repo contains a working MVP reference implementation of AVP v1.0.
 
