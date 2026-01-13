@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: avp
+      POSTGRES_PASSWORD: avp
+      POSTGRES_DB: avp
+    ports:
+      - "5432:5432"
+    volumes:
+      - avp_pgdata:/var/lib/postgresql/data
+
+  server:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    environment:
+      AVP_DATABASE_URL: ${AVP_DATABASE_URL}
+      AVP_HOST: ${AVP_HOST}
+      AVP_PORT: ${AVP_PORT}
+      AVP_DEV_MODE: ${AVP_DEV_MODE}
+      AVP_DEK_B64: ${AVP_DEK_B64}
+      AVP_KEY_VERSION: ${AVP_KEY_VERSION}
+      AVP_OPENAI_BASE_URL: ${AVP_OPENAI_BASE_URL}
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+volumes:
+  avp_pgdata:
