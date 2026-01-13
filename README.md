@@ -1,4 +1,8 @@
-# AVP(Agent Vault Protocol)
+<div align="center">
+  <img src=".github/images/avp_header.png" alt="Agent Vault Protocol" width="800"/>
+</div>
+
+# Agent Vault Protocol (AVP)
 
 This repo contains a working MVP reference implementation of AVP v1.0.
 
